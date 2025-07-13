@@ -40,7 +40,7 @@ export const resetPassword = async (req, res) => {
     const { email, newPassword } = req.body;
     try {
         const user = await User.findOne({ email });
-        if (!user) return res.status(404).json({ error: 'Không tìm thấy người dùng' });
+        if (!user) return res.status(404).json({ error: 'Ko tìm thấy user' });
 
         user.password = newPassword;
         await user.save();
